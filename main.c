@@ -24,9 +24,17 @@ int main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	if (argc == 2)
+	{	
+		//printf("%s\n\n", argv[1]);
 		split_argv = ft_split(argv[1], ' ');
+		printf("%s, %s, %s\n\n", argv[1], argv[2], argv[3]); // KO !!!!!!!!!!!!!!!!! FIX THIS
+
+	}
 	else
+	{
 		split_argv = argv + 1;
+		printf("%s, %s, %s\n\n", argv[1], argv[2], argv[3]); // OK!
+	}
 	i = 0;
 	while (split_argv[i] != NULL)
 	{
