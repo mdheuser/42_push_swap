@@ -45,6 +45,7 @@ int main(int argc, char **argv)
 	if (stack_a == NULL)
 	{
 		error_message();
+		write(1, "stack_a is NULL", 15); ///////////////////////////////////
 		if (argc == 2)
 			free(split_argv);
 		return (0);
