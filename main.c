@@ -27,12 +27,12 @@ int main(int argc, char **argv)
 	{	
 		printf("argc == 2: %s\n\n", argv[1]);
 		split_argv = ft_split(argv[1], ' ');
-		printf("\n\n%s, %s, %s\n\n", split_argv[0], split_argv[1], split_argv[2]); // OK!
+		//printf("\n\n%s, %s, %s\n\n", split_argv[0], split_argv[1], split_argv[2]); // OK!
 	}
 	else
 	{
 		split_argv = argv + 1;
-		printf("%s, %s, %s\n\n", split_argv[0], split_argv[1], split_argv[2]); // OK!
+		//printf("%s, %s, %s\n\n", split_argv[0], split_argv[1], split_argv[2]); // OK!
 	}
 	len = 0;
 	while (split_argv[len] != NULL) // this funcion establishes the size of the array.

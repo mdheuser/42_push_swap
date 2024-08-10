@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:06:19 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/10 21:46:29 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/10 21:55:56 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void printList(t_stack_node *head)
 	printf("stack_a:\n");
 	while (tmp != NULL)
 	{
-		printf("%d ", tmp->value);
+		printf("%d", tmp->value);
 		if (tmp->next != NULL)
-			printf(" -> ");
+			printf(" ");
 		tmp = tmp->next;
 	}
 	printf("\n");
