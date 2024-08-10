@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:38:06 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/08 22:13:17 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/10 19:37:39 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	ft_isspace(int c)
 		|| (c == '\n') || (c == '\v') || (c == '\f'));
 }
 
-int	ft_atoi(const char *str, bool *overflow)
+int	ft_atoi(const char *str)
 {
 	long int	num;
 	long int	buffer;
@@ -26,7 +26,6 @@ int	ft_atoi(const char *str, bool *overflow)
 
 	num = 0;
 	sign = 1;
-	overflow = false;
 	while (ft_isspace(*str))
 		str++;
 	if (*str == '-' || *str == '+')
@@ -49,7 +48,6 @@ int	ft_atoi(const char *str, bool *overflow)
 	{
         num = num * 10 + (*str - '0');
         if (num > INT_MAX) { // Check for overflow
-            *overflow = true;
             return (0); // Return 0 or any sentinel value
         }
         str++;

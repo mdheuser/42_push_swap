@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main2.c                                            :+:      :+:    :+:   TO DO */ 
+/*   main.c                                            :+:      :+:    :+:    */ 
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 {
 	t_stack_node    *stack_a;
 	//t_stack_node    *stack_b;
-	int             i;
+	int             len;
 	char            **split_argv;
 
 	stack_a = NULL;
@@ -25,40 +25,41 @@ int main(int argc, char **argv)
 		return (0);
 	if (argc == 2)
 	{	
-		//printf("%s\n\n", argv[1]);
+		printf("argc == 2: %s\n\n", argv[1]);
 		split_argv = ft_split(argv[1], ' ');
-		printf("%s, %s, %s\n\n", argv[1], argv[2], argv[3]); // KO !!!!!!!!!!!!!!!!! FIX THIS
-
+		printf("\n\n%s, %s, %s\n\n", split_argv[0], split_argv[1], split_argv[2]); // OK!
 	}
 	else
 	{
 		split_argv = argv + 1;
-		printf("%s, %s, %s\n\n", argv[1], argv[2], argv[3]); // OK!
+		printf("%s, %s, %s\n\n", split_argv[0], split_argv[1], split_argv[2]); // OK!
 	}
-	i = 0;
-	while (split_argv[i] != NULL)
+	len = 0;
+	while (split_argv[len] != NULL) // this funcion establishes the size of the array.
 	{
-		//printf("\n\nHERE:\n%s\n", argv[i]); // TO DO ------------------------------------------
-		i++;
+		//printf("\n\nSplit_argv in all cases HERE:\n%s\n", split_argv[len]); // TO DO ------------------------------------------
+		len++;
 	}
-	if (parse_array(split_argv, i) == 0)
+	if (parse_array(split_argv, len) == 0)
 	{
-		error_message();
+		printf("Parsing error");
+		//error_message();
 		if (argc == 2)
 			free(split_argv);
 		return (0);
 	}
-	printf("\ncount of strings: %d\n\n", i); ////////////////////////////////////// REMOVE
-	stack_a = create_int_list(split_argv, i);
+	printf("\nnumber counter: %d\n\n", len); ////////////////////////////////////// REMOVE
+	stack_a = create_int_list(split_argv, len);
+	printList(stack_a); //////////////////////////////////// REMOVE ---------------------
 	if (stack_a == NULL)
 	{
-		error_message();
-		write(1, "stack_a is NULL", 15); ///////////////////////////////////
+		//error_message();
+		printf("stack_a is NULL\n"); ///////////////////////////////////
 		if (argc == 2)
 			free(split_argv);
 		return (0);
 	}
-	printList(stack_a); //////////////////////////////////// REMOVE ---------------------
+	
 	if (argc == 2)
 		free(split_argv);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 13:30:43 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/09 19:16:09 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/10 19:14:02 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,19 @@ int	parse_array(char **split_argv, int size)
 			if (ft_isdigit(split_argv[i][j]) == 0
 			&& split_argv[i][j] != '-' && split_argv[i][j] != '+')
 			{
-				write(1, "non-digit character found", 25);
+				printf("non-digit character found\n");
 				return (0);
 			}
 			else if ((split_argv[i][j] == '-' || split_argv[i][j] == '+')
 			&& (ft_isdigit(split_argv[i][j - 1]) == 1))
 			{
-				write(1, "- or + in the wrong position", 28);
+				printf("- or + in the wrong position\n");
 				return (0);
 			}
 			else if ((split_argv[i][j] == '-' || split_argv[i][j] == '+')
 			&& (split_argv[i][j + 1] == '\0'))
 			{
-				write(1, "- or + in the wrong position", 28);
+				printf("- or + in the wrong position\n");
 				return (0);
 			}
 			j++;
@@ -79,10 +79,7 @@ int	parse_array(char **split_argv, int size)
 		i++;
 	}
 	if (check_duplicates(split_argv, size) == 0)
-	{
-		write(1, "Duplicates found!", 17);
 		return (0);
-	}
 	return (1);
 }
 
