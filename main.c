@@ -54,12 +54,17 @@ int main(int argc, char **argv)
 	if (stack_a == NULL)
 	{
 		//error_message();
-		printf("stack_a is NULL\n"); ///////////////////////////////////
+		printf("stack_a is NULL\n"); /////////////////////////////////// REMOVE
 		if (argc == 2)
 			free(split_argv);
 		return (0);
 	}
-	
+	if (len == 2)
+		sort_two_numbers(&stack_a);
+	//else if (len == 3)
+	//	sort_three_numbers(&stack_a);
+	//else if (len > 3)
+	//	sorting_algorithm(stack_a);
 	if (argc == 2)
 		free(split_argv);
 	return (0);
