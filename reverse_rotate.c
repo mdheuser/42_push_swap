@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 20:34:53 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/11 20:50:30 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/11 21:09:01 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ static void    reverse_rotate(t_stack_node **stack)
 
     if (!stack || !*stack || !(*stack)->next)
         return ;
+    
+    second_to_last_node = NULL;
+    last_node = *stack;
     
     while (last_node->next)
     {

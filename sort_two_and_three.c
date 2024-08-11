@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 20:57:17 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/11 20:57:21 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/11 21:12:38 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void    sort_three_numbers(t_stack_node **stack_a)
     int b;
     int c;
 
-    if (check_if_sorted(*stack_a) == 0)
+    if (check_if_sorted(*stack_a) == 1)
         return ;
     a = (*stack_a)->value;
     b = (*stack_a)->next->value;
@@ -48,8 +48,8 @@ void    sort_three_numbers(t_stack_node **stack_a)
         swap_a(stack_a);
         rotate_a(stack_a);
     }
-    else if (c > a && a > b)
+    else if (c > a && a > b) // 2 1 3
         swap_a(stack_a);
-    printf("\nSortet stack: \n"); /////////////////////////////REMOVE
+    printf("\nSorted stack: \n"); /////////////////////////////REMOVE
     printList(*stack_a); ///////////////////////////////////////////REMOVE
 }
