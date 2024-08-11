@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:21:47 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/11 18:35:33 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/11 20:56:38 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int				main(int argc, char **argv);
 // Checking
 int				parse_array(char **argv, int size);
 int				check_if_sorted(t_stack_node *stack);
+t_stack_node    *find_last_node(t_stack_node *node);
 
 
 
@@ -42,8 +43,26 @@ void			error_message(void);
 t_stack_node	*create_int_list(char **argv, int size);
 
 
-t_stack_node	*swap_a(t_stack_node *node);
-t_stack_node	*swap_b(t_stack_node *node);
+// Commands 
+void			swap_a(t_stack_node **stack_a);
+void			swap_b(t_stack_node **stack_b);
+void			swap_ab(t_stack_node **stack_a, t_stack_node **stack_b);
+
+void    		rotate_a(t_stack_node **stack_a);
+void    		rotate_b(t_stack_node **stack_b);
+void    		rotate_ab(t_stack_node **stack_a, t_stack_node **stack_b);
+
+void    		reverse_rotate_a(t_stack_node **stack_a);
+void    		reverse_rotate_b(t_stack_node **stack_b);
+void    		reverse_rotate_ab(t_stack_node **stack_a, t_stack_node **stack_b);
+
+
+
+
+
+
+
+
 
 void			printList(t_stack_node *head); ///////////// ------------------------------REMOVE
 

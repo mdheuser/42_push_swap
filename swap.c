@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:05:20 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/08 20:55:09 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/11 20:11:02 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,33 @@
 
 #include "push_swap.h"
 
-static t_stack_node    *swap_ab(t_stack_node *node)
+static void    swap_any(t_stack_node **node)
 {
-	int swap;
-	
-	swap = node->value;
-	node->value = node->next->value;
-	node->next->value = swap;
-	return (node);
+	int	swap;
+
+	if (node == NULL || *node == NULL || (*node)->next == NULL)
+        return ;
+	swap = (*node)->value;
+	(*node)->value = (*node)->next->value;
+	(*node)->next->value = swap;
 }
 
-t_stack_node    *swap_a(t_stack_node *node)
+void    swap_a(t_stack_node **stack_a)
 {
-	swap_ab(node);
+	swap_any(stack_a);
 	write(1, "sa\n", 3);
-	return (node);
 }
 
-t_stack_node    *swap_b(t_stack_node *node)
+void    swap_b(t_stack_node **stack_b)
 {
-	swap_ab(node);
+	swap_any(stack_b);
 	write(1, "sb\n", 3);
-	return (node);
+}
+
+void	swap_ab(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	swap_any(stack_a);
+	swap_any(stack_b);
+	write(1, "ss\n", 3);
 }
 
