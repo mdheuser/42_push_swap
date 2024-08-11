@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:21:47 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/11 20:56:38 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/11 22:51:50 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void    		reverse_rotate_a(t_stack_node **stack_a);
 void    		reverse_rotate_b(t_stack_node **stack_b);
 void    		reverse_rotate_ab(t_stack_node **stack_a, t_stack_node **stack_b);
 
-
+// push a & push b
 
 
 

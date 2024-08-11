@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:06:19 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/11 22:41:17 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/11 22:45:27 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ t_stack_node    *create_int_list(char **split_argv, int len) // ????????????????
 }
 
 ///////////////////////////////////////////////////////////////////// DELETE /////////////////////
-
 void printList(t_stack_node *head)
 {
 	t_stack_node *tmp;

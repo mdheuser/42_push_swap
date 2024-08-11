@@ -6,13 +6,13 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 22:13:16 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/11 22:14:52 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/11 22:51:33 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    push_a(t_stack_node **stack_a, t_stack_node **stack_b)
+void    push(t_stack_node **dest, t_stack_node **src)
 {
     
     write(1, "pa\n", 3);
