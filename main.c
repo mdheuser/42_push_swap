@@ -63,8 +63,11 @@ int main(int argc, char **argv)
 		sort_two_numbers(&stack_a);
 	else if (len == 3)
 		sort_three_numbers(&stack_a);
-	//else if (len > 3)
-	//	sorting_algorithm(stack_a);
+	else if (len > 3)
+	{
+		check_if_sorted(stack_a);
+		//sorting_algorithm(&stack_a, len);
+	}
 	if (argc == 2)
 		free(split_argv);
 	return (0);

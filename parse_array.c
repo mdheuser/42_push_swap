@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 13:30:43 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/10 19:14:02 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/11 22:00:00 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,3 @@ int	parse_array(char **split_argv, int size)
 		return (0);
 	return (1);
 }
-
-/* Inputs
-./push_swap +24 +25 +26
-./push_swap -24 -25 -26
-./push_swap 24 25 26
-./push_swap +24 25 -26 aa
-./push_swap "24 25 26 27"
-*/
-
-// this function should take an array of strings (numbers) and check for errors.
-// Return 0 every time an error is found. Return (1) if no error is found
