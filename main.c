@@ -15,31 +15,24 @@
 int main(int argc, char **argv)
 {
 	t_stack_node    *stack_a;
-	//t_stack_node    *stack_b;
+	t_stack_node    *stack_b;
 	int             len;
 	char            **split_argv;
 
 	stack_a = NULL;
-	//stack_b = NULL;
+	stack_b = NULL;
 	if (argc == 1)
 		return (0);
 	if (argc == 2)
 	{	
 		printf("argc == 2: %s\n\n", argv[1]);
 		split_argv = ft_split(argv[1], ' ');
-		//printf("\n\n%s, %s, %s\n\n", split_argv[0], split_argv[1], split_argv[2]); // OK!
 	}
 	else
-	{
 		split_argv = argv + 1;
-		//printf("%s, %s, %s\n\n", split_argv[0], split_argv[1], split_argv[2]); // OK!
-	}
 	len = 0;
-	while (split_argv[len] != NULL) // this funcion establishes the size of the array.
-	{
-		//printf("\n\nSplit_argv in all cases HERE:\n%s\n", split_argv[len]); // TO DO ------------------------------------------
+	while (split_argv[len] != NULL)
 		len++;
-	}
 	if (parse_array(split_argv, len) == 0)
 	{
 		printf("Parsing error");
@@ -68,6 +61,16 @@ int main(int argc, char **argv)
 		check_if_sorted(stack_a);
 		//sorting_algorithm(&stack_a, len);
 	}
+	//////// TESTING CREATION OF STACK_B AND PUSHING ///////////////////////////////////////
+	/*
+	push_b(&stack_b, &stack_a);
+	push_b(&stack_b, &stack_a);
+	printf("\nStack b:\n");
+	printList(stack_b);
+	printf("\nStack a after pushing to b:\n");
+	printList(stack_a);
+	*/
+	////////////////////////////////////////
 	if (argc == 2)
 		free(split_argv);
 	return (0);
