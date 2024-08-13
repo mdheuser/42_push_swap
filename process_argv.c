@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:39:57 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/13 17:03:20 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/13 19:22:18 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,23 @@ static int	parse_array(char **split_argv, int size)
 	return (1);
 }
 
-// this function checks for errors in argv, converts it into a stack nad returns 0 or 1
+static void free_array(char **split_argv, int len)
+{
+    int i;
+
+    if (split_argv == NULL)
+        return ; // Check if the array is NULL
+    // Free each inner array (row) using a while loop
+    i = 0;
+    while (i < len) {
+        free(split_argv[i]); // Free the current row
+        i++; // Increment the index
+    }
+    // Free the outer array
+    free(split_argv);
+}
+
+// this function checks for errors in argv, converts it into a stack and returns it or NULL.
 t_stack_node    *process_argv(int argc, char **argv)
 {
     char            **split_argv;
@@ -107,11 +123,9 @@ t_stack_node    *process_argv(int argc, char **argv)
 		printf("Parsing error");
 		//error_message();
 		if (argc == 2)
-			free(split_argv);
+			free_array(split_argv, len);
 		return (NULL);
 	}
-    if (argc == 2)
-		free(split_argv);
 	printf("\nnumber counter: %d\n\n", len); ////////////////////////////////////// REMOVE
 	stack_a = create_int_list(split_argv, len);
     if (stack_a == NULL)
@@ -119,8 +133,10 @@ t_stack_node    *process_argv(int argc, char **argv)
 		//error_message();
 		printf("stack_a is NULL\n"); /////////////////////////////////// REMOVE
 		if (argc == 2)
-			free(split_argv);
-		return (0);
+			free_array(split_argv, len);
+		return (NULL);
 	}
+    if (argc == 2)
+		free_array(split_argv, len);
     return (stack_a);
 }

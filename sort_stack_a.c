@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:59:10 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/13 17:07:03 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/13 20:16:37 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,6 @@ static void    sort_three_numbers(t_stack_node **stack_a)
     printList(*stack_a); ///////////////////////////////////////////REMOVE
 }
 
-//sorting_algorithm
-/*void    sorting_algorithm(t_stack_node **stack_a)
-{
-    while (stack_a)
-    {
-        if ((*stack_a)->value > (*stack_a)->next->value)
-            swap_a(*stack_a);
-    }
-}*/
-
 void    sort_stack_a(t_stack_node *stack_a)
 {
     int stack_len;
@@ -77,7 +67,6 @@ void    sort_stack_a(t_stack_node *stack_a)
 	else if (stack_len > 3)
 	{
 		check_if_sorted(stack_a);
-		//sorting_algorithm(&stack_a, len);
-        // sort long lists
+		sorting_algorithm(&stack_a);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:21:47 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/13 17:04:27 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/13 20:16:08 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h> // REMOVE -------------------------------------------------------------
 // # include <stdbool.h>
 
+// Node structure
 typedef struct s_stack_node
 {
 	int					value;
@@ -30,6 +31,10 @@ typedef struct s_stack_node
 
 // Key functions
 t_stack_node 	*process_argv(int argc, char **argv);
+void			sort_stack_a(t_stack_node *stack_a);
+void			free_stack(t_stack_node **stack);
+void    		sorting_algorithm(t_stack_node **stack_a);
+
 
 // Checking
 // STATIC //int				parse_array(char **argv, int size);
@@ -38,9 +43,12 @@ int				check_if_sorted(t_stack_node *stack);
 t_stack_node    *find_last_node(t_stack_node *node);
 t_stack_node	*create_int_list(char **argv, int size);
 int				find_stack_len(t_stack_node *stack);
+int				find_min(t_stack_node *stack);
+int				find_max(t_stack_node *stack);
 
 
-// Commands 
+
+// Operations 
 void			swap_a(t_stack_node **stack_a);
 void			swap_b(t_stack_node **stack_b);
 void			swap_ab(t_stack_node **stack_a, t_stack_node **stack_b);
@@ -55,9 +63,6 @@ void    		reverse_rotate_ab(t_stack_node **stack_a, t_stack_node **stack_b);
 
 void    		push_a(t_stack_node **stack_a, t_stack_node **stack_b);
 void    		push_b(t_stack_node **stack_b, t_stack_node **stack_a);
-
-// Sorting
-void			sort_stack_a(t_stack_node *stack_a);
 
 // TEMPORARY ////////////////////////////////////////////////////////////////////
 void			printList(t_stack_node *head); ///////////// ------------------------------REMOVE
