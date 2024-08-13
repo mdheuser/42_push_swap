@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_array.c                                      :+:      :+:    :+:   */
+/*   process_argv.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/26 13:30:43 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/11 22:00:00 by mdahlstr         ###   ########.fr       */
+/*   Created: 2024/08/13 15:39:57 by mdahlstr          #+#    #+#             */
+/*   Updated: 2024/08/13 17:03:20 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	check_duplicates(char **split_argv, int size)
 	}
 	return (1);
 }
-int	parse_array(char **split_argv, int size)
+static int	parse_array(char **split_argv, int size)
 {
 	int	i;
 	int	j;
@@ -81,4 +81,46 @@ int	parse_array(char **split_argv, int size)
 	if (check_duplicates(split_argv, size) == 0)
 		return (0);
 	return (1);
+}
+
+// this function checks for errors in argv, converts it into a stack nad returns 0 or 1
+t_stack_node    *process_argv(int argc, char **argv)
+{
+    char            **split_argv;
+    int             len;
+    t_stack_node    *stack_a;
+	
+    if (argc == 1)
+		return (NULL);
+	if (argc == 2)
+	{	
+		printf("argc == 2: %s\n\n", argv[1]);
+		split_argv = ft_split(argv[1], ' ');
+	}
+	else
+		split_argv = argv + 1;
+	len = 0;
+	while (split_argv[len] != NULL)
+		len++;
+	if (parse_array(split_argv, len) == 0)
+	{
+		printf("Parsing error");
+		//error_message();
+		if (argc == 2)
+			free(split_argv);
+		return (NULL);
+	}
+    if (argc == 2)
+		free(split_argv);
+	printf("\nnumber counter: %d\n\n", len); ////////////////////////////////////// REMOVE
+	stack_a = create_int_list(split_argv, len);
+    if (stack_a == NULL)
+	{
+		//error_message();
+		printf("stack_a is NULL\n"); /////////////////////////////////// REMOVE
+		if (argc == 2)
+			free(split_argv);
+		return (0);
+	}
+    return (stack_a);
 }

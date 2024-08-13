@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_two_and_three.c                               :+:      :+:    :+:   */
+/*   sort_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 20:57:17 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/11 21:12:38 by mdahlstr         ###   ########.fr       */
+/*   Created: 2024/08/13 15:59:10 by mdahlstr          #+#    #+#             */
+/*   Updated: 2024/08/13 17:07:03 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sort_two_numbers(t_stack_node **stack_a)
+static void    sort_two_numbers(t_stack_node **stack_a)
 {
     if(check_if_sorted(*stack_a) == 0)
         swap_a(stack_a);
@@ -23,7 +23,7 @@ void    sort_two_numbers(t_stack_node **stack_a)
     printList(*stack_a); ///////////////////////////////////////////REMOVE
 }
 
-void    sort_three_numbers(t_stack_node **stack_a)
+static void    sort_three_numbers(t_stack_node **stack_a)
 {
     int a;
     int b;
@@ -52,4 +52,32 @@ void    sort_three_numbers(t_stack_node **stack_a)
         swap_a(stack_a);
     printf("\nSorted stack: \n"); /////////////////////////////REMOVE
     printList(*stack_a); ///////////////////////////////////////////REMOVE
+}
+
+//sorting_algorithm
+/*void    sorting_algorithm(t_stack_node **stack_a)
+{
+    while (stack_a)
+    {
+        if ((*stack_a)->value > (*stack_a)->next->value)
+            swap_a(*stack_a);
+    }
+}*/
+
+void    sort_stack_a(t_stack_node *stack_a)
+{
+    int stack_len;
+
+    stack_len = find_stack_len(stack_a);
+    printf("\nstack_len: %d", stack_len);
+    if (stack_len == 2)
+		sort_two_numbers(&stack_a);
+	else if (stack_len == 3)
+		sort_three_numbers(&stack_a);
+	else if (stack_len > 3)
+	{
+		check_if_sorted(stack_a);
+		//sorting_algorithm(&stack_a, len);
+        // sort long lists
+	}
 }

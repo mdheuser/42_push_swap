@@ -6,11 +6,11 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 22:13:16 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/12 16:18:41 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/13 16:53:42 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void    push(t_stack_node **dest, t_stack_node **src)
 {

@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:21:47 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/12 16:07:10 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/13 17:04:27 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h> // malloc(), free(), exit()
 # include <limits.h>
 # include <stdio.h> // REMOVE -------------------------------------------------------------
-# include <stdbool.h>
+// # include <stdbool.h>
 
 typedef struct s_stack_node
 {
@@ -28,14 +28,17 @@ typedef struct s_stack_node
 	struct s_stack_node	*next;
 } t_stack_node;
 
-int				main(int argc, char **argv);
+// Key functions
+t_stack_node 	*process_argv(int argc, char **argv);
 
 // Checking
-int				parse_array(char **argv, int size);
+// STATIC //int				parse_array(char **argv, int size);
 void			error_message(void);
 int				check_if_sorted(t_stack_node *stack);
 t_stack_node    *find_last_node(t_stack_node *node);
 t_stack_node	*create_int_list(char **argv, int size);
+int				find_stack_len(t_stack_node *stack);
+
 
 // Commands 
 void			swap_a(t_stack_node **stack_a);
@@ -54,10 +57,9 @@ void    		push_a(t_stack_node **stack_a, t_stack_node **stack_b);
 void    		push_b(t_stack_node **stack_b, t_stack_node **stack_a);
 
 // Sorting
-void    sort_two_numbers(t_stack_node **stack_a);
-void    sort_three_numbers(t_stack_node **stack_a);
+void			sort_stack_a(t_stack_node *stack_a);
 
-// TEMPORARY ///
+// TEMPORARY ////////////////////////////////////////////////////////////////////
 void			printList(t_stack_node *head); ///////////// ------------------------------REMOVE
 
 #endif 
