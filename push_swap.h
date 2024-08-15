@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:21:47 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/13 20:16:08 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/15 11:24:47 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@
 typedef struct s_stack_node
 {
 	int					value;
-	int					position;
+	int					index;
+	int					push_cost;
+	bool				above_median;
+	bool				cheapest;
+	struct s_stack_node	*target_node;
 	struct s_stack_node	*prev;
 	struct s_stack_node	*next;
 } t_stack_node;
@@ -37,16 +41,17 @@ void    		sorting_algorithm(t_stack_node **stack_a);
 
 
 // Checking
-// STATIC //int				parse_array(char **argv, int size);
 void			error_message(void);
 int				check_if_sorted(t_stack_node *stack);
 t_stack_node    *find_last_node(t_stack_node *node);
 t_stack_node	*create_int_list(char **argv, int size);
+
+
+
+// Utils
 int				find_stack_len(t_stack_node *stack);
 int				find_min(t_stack_node *stack);
 int				find_max(t_stack_node *stack);
-
-
 
 // Operations 
 void			swap_a(t_stack_node **stack_a);
