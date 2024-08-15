@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:12:23 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/15 11:25:45 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/15 16:44:44 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    error_message(void)
 {
-	write(1, "Error\n", 6);
+	write(1, "Error\n", 7);
 }
 
 int find_stack_len(t_stack_node *stack)

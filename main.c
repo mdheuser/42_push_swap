@@ -39,5 +39,6 @@ int main(int argc, char **argv)
 	printList(stack_a);
 	printf("Stack a size: %d", find_stack_len(stack_a));
 	*/
+
 	return (0);
 }

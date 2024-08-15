@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:30:30 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/15 14:57:19 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/08/15 16:18:41 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ int    find_max(t_stack_node *stack)
 
 int find_median(t_stack_node *stack, int stack_len)
 {
-    int median;
-    int median_index;
-    int i;
+    t_stack_node    *current;
+    int             median;
+    int             median_index;
+    int             i;
 
+    current = NULL;
     median = 0;
     median_index = 0;
     i = 0;
@@ -59,7 +61,7 @@ int find_median(t_stack_node *stack, int stack_len)
     {
         median = stack->value;
         i++;
-        stack = stack->next;
+        current = current->next;
     }
     return (median);
 }
