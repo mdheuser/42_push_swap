@@ -1,3 +1,4 @@
-checker_linux
+checker
 a.out
 .vscode/
+*.o
