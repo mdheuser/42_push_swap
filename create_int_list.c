@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:06:19 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/12 16:34:31 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/04 20:36:15 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_stack_node    *create_int_list(char **split_argv, int len) // ????????????????
 		//if (new_node->value > INT_MAX || new_node->value < INT_MIN)
 		if (n > INT_MAX || n < INT_MIN)
 		{
-			printf("\n(overflow or underflow)\n");
+			DEBUG_PRINT("\n(overflow or underflow)\n");
 			return (NULL);
 		}
 		//printf("new_node->value: %d\n", new_node->value); ////// REMOVE ////////////////////////////////////////
@@ -55,17 +55,3 @@ t_stack_node    *create_int_list(char **split_argv, int len) // ????????????????
 }
 
 ///////////////////////////////////////////////////////////////////// DELETE /////////////////////
-void printList(t_stack_node *head)
-{
-	t_stack_node *tmp;
-	
-	tmp = head;
-	while (tmp != NULL)
-	{
-		printf("%d", tmp->value);
-		if (tmp->next != NULL)
-			printf(" ");
-		tmp = tmp->next;
-	}
-	printf("\n\n");
-}

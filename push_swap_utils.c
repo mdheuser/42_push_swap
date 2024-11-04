@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:12:23 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/15 16:44:44 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/04 20:33:37 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    error_message(void)
 {
-	write(1, "Error\n", 7);
+	write(1, "Error\n", 6);
 }
 
 int find_stack_len(t_stack_node *stack)
@@ -38,12 +38,12 @@ int check_if_sorted(t_stack_node *stack)
 	{
 		if(stack->value > stack->next->value)
 		{
-			printf("\nThe list is NOT sorted\n"); // REMOVE ----------------------------
+			DEBUG_PRINT("\nThe list is NOT sorted\n"); // REMOVE ----------------------------
 			return(0);
 		}
 		stack = stack->next;
 	}
-	printf("\nThe list is already in the right order\n"); // REMOVE --------------------
+	DEBUG_PRINT("\nThe list is already in the right order\n"); // REMOVE --------------------
 	return (1);
 }
 

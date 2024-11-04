@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 18:04:20 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/13 16:53:52 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/04 19:00:30 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void    rotate(t_stack_node **stack)
         return ;
     first_node = *stack;
     last_node = find_last_node(*stack);
-    
     *stack = first_node->next;
     first_node->next = NULL;
     last_node->next = first_node;
@@ -31,7 +30,6 @@ void    rotate_a(t_stack_node **stack_a)
 {
     write(1, "ra\n", 3);
     rotate(stack_a);
-    
 }
 
 void    rotate_b(t_stack_node **stack_b)

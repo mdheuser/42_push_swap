@@ -6,9 +6,13 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:39:57 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/13 19:22:18 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/04 20:27:44 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Add error case where a number preceded by zero is also considered. 
+// Example 3 03 should return error.
+//
 
 #include "push_swap.h"
 
@@ -110,7 +114,7 @@ t_stack_node    *process_argv(int argc, char **argv)
 		return (NULL);
 	if (argc == 2)
 	{	
-		printf("argc == 2: %s\n\n", argv[1]);
+		DEBUG_PRINT("argc == 2: %s\n\n", argv[1]);
 		split_argv = ft_split(argv[1], ' ');
 	}
 	else
@@ -120,18 +124,18 @@ t_stack_node    *process_argv(int argc, char **argv)
 		len++;
 	if (parse_array(split_argv, len) == 0)
 	{
-		printf("Parsing error");
+		DEBUG_PRINT("Parsing error");
 		//error_message();
 		if (argc == 2)
 			free_array(split_argv, len);
 		return (NULL);
 	}
-	printf("\nnumber counter: %d\n\n", len); ////////////////////////////////////// REMOVE
+	DEBUG_PRINT("\nnumber counter: %d\n\n", len); ////////////////////////////////////// REMOVE
 	stack_a = create_int_list(split_argv, len);
     if (stack_a == NULL)
 	{
 		//error_message();
-		printf("stack_a is NULL\n"); /////////////////////////////////// REMOVE
+		DEBUG_PRINT("stack_a is NULL\n"); /////////////////////////////////// REMOVE
 		if (argc == 2)
 			free_array(split_argv, len);
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 22:13:16 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/13 16:53:42 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/04 17:19:45 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,14 @@ static void    push(t_stack_node **dest, t_stack_node **src)
     
 }
 
+// Pushes from stack b to stack a.
 void    push_a(t_stack_node **stack_a, t_stack_node **stack_b)
 {
     push(stack_a, stack_b);
     write(1, "pa\n", 3);
 }
 
+// Pushes from stack a to stack b.
 void    push_b(t_stack_node **stack_b, t_stack_node **stack_a)
 {
     push(stack_b, stack_a);

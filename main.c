@@ -15,30 +15,20 @@
 int main(int argc, char **argv)
 {
 	t_stack_node    *stack_a;
+	t_stack_node	*stack_b;
 
-	//stack_a = NULL;
 	stack_a = process_argv(argc, argv);
+	stack_b = NULL;
 	if (!stack_a)
-		return (0);
-	////////////
-	printList(stack_a); //////////////////////////////////// REMOVE ---------------------
-	///////////////////
-	printf("\nMIN = %d\n", find_min(stack_a));
-	printf("\nMAX = %d\n", find_max(stack_a));
-	if (check_if_sorted(stack_a) == 0)
-		sort_stack_a(stack_a);
-	free_stack(&stack_a);
-	//////// TESTING CREATION OF STACK_B AND PUSHING ///////////////////////////////////////
-	/*
-	push_b(&stack_b, &stack_a);
-	push_b(&stack_b, &stack_a);
-	printf("\nStack b:\n");
-	printList(stack_b);
-	printf("Stack b size: %d", find_stack_len(stack_b));
-	printf("\nStack a after pushing to b:\n");
+		exit(EXIT_FAILURE);
+	#if DEBUG_MODE
 	printList(stack_a);
-	printf("Stack a size: %d", find_stack_len(stack_a));
-	*/
-
+	#endif
+	DEBUG_PRINT("\nMIN = %d\n", find_min(stack_a));
+	DEBUG_PRINT("\nMAX = %d\n", find_max(stack_a));
+	if (!check_if_sorted(stack_a))
+		sort_stack_a(stack_a, stack_b);
+	free_stack(&stack_a);
 	return (0);
 }
+//

@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:59:10 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/15 11:58:10 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/04 20:42:31 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,28 @@ static void    sort_three_numbers(t_stack_node **stack_a)
         reverse_rotate_a(stack_a);
     if ((*stack_a)->value > (*stack_a)->next->value)
         swap_a(stack_a);
-    printf("\nSorted stack: \n"); /////////////////////////////REMOVE
+    DEBUG_PRINT("\nSorted stack: \n"); /////////////////////////////REMOVE
+    #if DEBUG_MODE
     printList(*stack_a); ///////////////////////////////////////////REMOVE
+    #endif
 }
 
-void    sort_stack_a(t_stack_node *stack_a)
+void    sort_stack_a(t_stack_node *stack_a, t_stack_node *stack_b)
 {
     int stack_len;
 
     stack_len = find_stack_len(stack_a);
-    printf("\nstack_len: %d", stack_len);
+    DEBUG_PRINT("\nstack_len: %d", stack_len);
     if (stack_len == 2)
     {
 		swap_a(&stack_a);
-        printf("\nSorted stack: \n"); /////////////////////////////REMOVE
+        DEBUG_PRINT("\nSorted stack: \n"); /////////////////////////////REMOVE
+        #if DEBUG_MODE
         printList(stack_a); ///////////////////////////////////////////REMOVE
+        #endif
     }
     else if (stack_len == 3)
 		sort_three_numbers(&stack_a);
 	else if (stack_len > 3)
-		sorting_algorithm(&stack_a);
+		sorting_algorithm(&stack_a, &stack_b);
 }
