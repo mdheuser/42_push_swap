@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:21:47 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/04 20:54:36 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/05 11:18:02 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,11 @@ t_stack_node 	*process_argv(int argc, char **argv);
 void			sort_stack_a(t_stack_node *stack_a, t_stack_node *stack_b);
 void			free_stack(t_stack_node **stack);
 void    		sorting_algorithm(t_stack_node **stack_a, t_stack_node **stack_b);
+void			sort_three_numbers(t_stack_node **stack_a);
+
 
 // Checking
-void			error_message(void);
+void			error_exit(t_stack_node **stack_a);
 int				check_if_sorted(t_stack_node *stack);
 t_stack_node    *find_last_node(t_stack_node *node);
 t_stack_node	*create_int_list(char **argv, int size);
@@ -80,7 +82,6 @@ t_stack_node	*create_int_list(char **argv, int size);
 int				find_stack_len(t_stack_node *stack);
 int				find_min(t_stack_node *stack);
 int				find_max(t_stack_node *stack);
-int				find_median(t_stack_node *stack, int stack_len);
 
 // Operations 
 void			swap_a(t_stack_node **stack_a);

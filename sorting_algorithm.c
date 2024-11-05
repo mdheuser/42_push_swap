@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 22:06:41 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/04 20:41:29 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/05 10:38:48 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,27 @@ void    sort_till_3(t_stack_node *stack_a, t_stack_node *stack_b)
 
 void    sorting_algorithm(t_stack_node **stack_a, t_stack_node **stack_b)
 {
-    if (find_stack_len(*stack_a) > 3 && !check_if_sorted(*stack_a))
+    int len_a;
+
+    len_a = (find_stack_len(*stack_a));
+    if (len_a-- > 3 && !check_if_sorted(*stack_a))
         push_b(stack_b, stack_a);
-    if (find_stack_len(*stack_a) > 3 && !check_if_sorted(*stack_a))
+    if (len_a-- > 3 && !check_if_sorted(*stack_a))
         push_b(stack_b, stack_a);
-    if (find_stack_len(*stack_a) > 3 && !check_if_sorted(*stack_a))
+    while (len_a-- > 3 && !check_if_sorted(*stack_a))
+    {
+        /* init_nodes_a() - WHAT IS THIS?
+        sets current index of a and b
+        set the targets
+        cost analysis
+        set cheapest
+        */
         sort_till_3(*stack_a, *stack_b);
+    }
+    sort_three_numbers(stack_a);
+    
+    
+    
     #if DEBUG_MODE
     printList(*stack_a);
     printList(*stack_b);
