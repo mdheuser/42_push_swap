@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_argv.c                                     :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:39:57 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/05 15:33:13 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:31:52 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ static int	parse_array(char **split_argv, int size)
 			if (ft_isdigit(split_argv[i][j]) == 0
 			&& split_argv[i][j] != '-' && split_argv[i][j] != '+')
 			{
-				printf("non-digit character found\n");
+				DEBUG_PRINT("non-digit character found\n");
 				return (0);
 			}
 			else if ((split_argv[i][j] == '-' || split_argv[i][j] == '+')
 			&& (ft_isdigit(split_argv[i][j - 1]) == 1))
 			{
-				printf("- or + in the wrong position\n");
+				DEBUG_PRINT("- or + in the wrong position\n");
 				return (0);
 			}
 			else if ((split_argv[i][j] == '-' || split_argv[i][j] == '+')

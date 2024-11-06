@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:21:47 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/05 15:38:32 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:51:03 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define DEBUG_MODE 1
 
 # if DEBUG_MODE
-#  define DEBUG_PRINT(fmt, args...) fprintf(stderr, "DEBUG: " fmt "\n", ## args)
+#  define DEBUG_PRINT(fmt, args...) fprintf(stderr, fmt "\n", ## args)
 # else
 #  define DEBUG_PRINT(fmt, args...)
 # endif
@@ -67,7 +67,9 @@ t_stack_node 	*process_argv(int argc, char **argv);
 void			sort_stack_a(t_stack_node *stack_a, t_stack_node *stack_b);
 void			free_stack(t_stack_node **stack);
 void    		sorting_algorithm(t_stack_node **stack_a, t_stack_node **stack_b);
-void			sort_three_numbers(t_stack_node **stack_a);
+void			sort_three(t_stack_node **stack_a);
+void    		sort_five(t_stack_node **stack_a, t_stack_node **stack_b);
+void    		sort_four(t_stack_node **stack_a, t_stack_node **stack_b);
 
 // Checking
 void			error_exit(t_stack_node *stack_a);
@@ -77,8 +79,8 @@ t_stack_node	*create_int_list(char **argv, int size);
 
 // Utils
 int				find_stack_len(t_stack_node *stack);
-int				find_min(t_stack_node *stack);
-int				find_max(t_stack_node *stack);
+t_stack_node    *find_min(t_stack_node *stack);
+t_stack_node    *find_max(t_stack_node *stack);
 
 // Operations 
 void			swap_a(t_stack_node **stack_a);

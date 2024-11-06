@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_algorithm.c                                :+:      :+:    :+:   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 22:06:41 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/05 17:41:00 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:04:28 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,22 @@ static void    set_target_for_a(t_stack_node *stack_a, t_stack_node *stack_b)
     {
         best_match_index = LONG_MIN;
         current_b = stack_b;
-        if (current_b->value < stack_a->value && current_b->value > best_match_index)
+        while (stack_b)
         {
-            best_match_index = current_b->value;
-            target_node = current_b;
+            if (current_b->value < stack_a->value && current_b->value > best_match_index)
+            {
+                best_match_index = current_b->value;
+                target_node = current_b;
+            }
+            current_b = current_b->next;
         }
-            
-
+        if (best_match_index == LONG_MIN)
+            stack_a->target_node = find_max(stack_b);
+        else
+            stack_a->target_node = target_node;
         stack_a = stack_a->next;
+        DEBUG_PRINT("stack a: %d: target: %d", stack_a->value, stack_a->target_node->value);
     }
-    
-    stack_a->target_node = find_max(stack_b);
 }
 
 // Sets the index of every value in the stack
@@ -69,7 +74,6 @@ void    initialise_nodes_a(t_stack_node *stack_a, t_stack_node *stack_b)
     current_index(stack_a);
     current_index(stack_b);
     set_target_for_a(stack_a, stack_b);
-    // set targets for all nodes in a.
     // cost analysis for pushing from a to b.
     // set cheapest from a to b. ????
 }
@@ -111,8 +115,7 @@ void    sorting_algorithm(t_stack_node **stack_a, t_stack_node **stack_b)
         //sort_till_3(*stack_a, *stack_b);
     //}
     if (len_a == 3)
-        sort_three_numbers(stack_a);
-    
+        sort_three(stack_a);
     #if DEBUG_MODE
     DEBUG_PRINT("Stack a:\n");
     printList(*stack_a);

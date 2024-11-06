@@ -27,8 +27,8 @@ int main(int argc, char **argv)
 	#if DEBUG_MODE
 	printList(stack_a);
 	#endif
-	DEBUG_PRINT("\nMIN = %d\n", find_min(stack_a));
-	DEBUG_PRINT("\nMAX = %d\n", find_max(stack_a));
+	//DEBUG_PRINT("\nMIN = %d\n", find_min(stack_a));
+	//DEBUG_PRINT("\nMAX = %d\n", find_max(stack_a));
 	if (!check_if_sorted(stack_a))
 		sort_stack_a(stack_a, stack_b);
 	free_stack(&stack_a);

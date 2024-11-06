@@ -6,36 +6,48 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:30:30 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/05 10:33:05 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:35:54 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int    find_min(t_stack_node *stack)
+t_stack_node    *find_min(t_stack_node *stack)
 {
-    int i;
+	long			min;
+	t_stack_node    *min_node;
 
-    i = stack->value;
-    while (stack)
-    {
-        if (stack->value < i)
-            i = stack->value;
-        stack = stack->next;
-    }
-    return (i);
+	if (!stack)
+		return (NULL);
+	min = LONG_MAX;
+	while (stack)
+	{
+		if (stack->value < min)
+		{
+			min = stack->value;
+			min_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (min_node);
 }
 
-int    find_max(t_stack_node *stack)
+t_stack_node    *find_max(t_stack_node *stack)
 {
-    int i;
+	long			max;
+	t_stack_node    *max_node;
 
-    i = stack->value;
-    while (stack)
-    {
-        if (stack->value > i)
-            i = stack->value;
-        stack = stack->next;
-    }
-    return (i);
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
+	{
+		if (stack->value < max)
+		{
+			max = stack->value;
+			max_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (max_node);
 }
