@@ -6,7 +6,7 @@
 #    By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 13:35:13 by mdahlstr          #+#    #+#              #
-#    Updated: 2024/08/11 22:23:17 by mdahlstr         ###   ########.fr        #
+#    Updated: 2024/10/02 15:35:59 by mdahlstr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,10 @@ SRCS = 	ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 		ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 		ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-		ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_atol.c
+		ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_atol.c \
+		ft_printf.c print_address.c print_num.c print_char.c \
+		print_str.c print_hex.c print_unsigned.c \
+		get_next_line.c get_next_line_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 

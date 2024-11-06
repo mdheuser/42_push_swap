@@ -6,12 +6,14 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:06:19 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/05 10:34:17 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:18:45 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//This function converts the strings in argv into  integers.
+// AND checks for duplicates
 t_stack_node    *create_int_list(char **split_argv, int len)
 {
 	t_stack_node    *head;

@@ -1,19 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   print_num.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 14:47:53 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/10/03 11:18:42 by mdahlstr         ###   ########.fr       */
+/*   Created: 2024/06/04 14:06:19 by mdahlstr          #+#    #+#             */
+/*   Updated: 2024/08/28 16:15:27 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+int	print_num(int n)
 {
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
-		return (1);
+	int						count;
+	unsigned long long int	number;
+
+	count = 0;
+	number = n;
+	if (n < 0)
+	{
+		number = -number;
+		count += print_char('-');
+		if (count == -1)
+			return (-1);
+	}
+	if (number >= 10)
+	{
+		count += print_num(number / 10);
+		if (count == -1)
+			return (-1);
+		count += print_num(number % 10);
+	}
 	else
-		return (0);
+		count += print_char(number + '0');
+	return (count);
 }

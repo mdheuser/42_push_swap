@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 14:47:53 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/10/03 11:18:42 by mdahlstr         ###   ########.fr       */
+/*   Created: 2024/06/04 11:38:04 by mdahlstr          #+#    #+#             */
+/*   Updated: 2024/08/28 16:15:16 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+int	print_char(char c)
 {
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
-		return (1);
-	else
-		return (0);
+	int			count;
+
+	count = write(1, &c, 1);
+	if (count == -1)
+		return (-1);
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:12:23 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/05 11:16:58 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:10:03 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	free_stack(t_stack_node **stack)
 	}
 }
 
-void    error_exit(t_stack_node **stack_a)
+void    error_exit(t_stack_node *stack_a)
 {
 	if (stack_a)
-		free_stack(stack_a);
+		free_stack(&stack_a);
 	write(1, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }

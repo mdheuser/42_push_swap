@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:39:57 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/04 20:27:44 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:33:13 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,6 @@
 
 #include "push_swap.h"
 
-static int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
-}
-
-static int	check_duplicates(char **split_argv, int size)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (ft_strcmp(split_argv[i], split_argv[j]) == 0)
-			{
-				printf("Duplicates found\n"); // -------------------------------------------------- REMOVE
-				return (0);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
 static int	parse_array(char **split_argv, int size)
 {
 	int	i;
@@ -82,8 +49,6 @@ static int	parse_array(char **split_argv, int size)
 		}
 		i++;
 	}
-	if (check_duplicates(split_argv, size) == 0)
-		return (0);
 	return (1);
 }
 
@@ -103,7 +68,34 @@ static void free_array(char **split_argv, int len)
     free(split_argv);
 }
 
-// this function checks for errors in argv, converts it into a stack and returns it or NULL.
+static int	check_for_duplicates(t_stack_node *stack_a)
+{
+	t_stack_node *current;
+	t_stack_node *runner;
+	
+	current = stack_a;
+	while (current != NULL)
+	{
+		runner = current->next;
+		while (runner != NULL)
+		{
+			if (current->value == runner->value)
+			{	
+				DEBUG_PRINT("Duplicates found");
+				return (0);
+			}
+			runner = runner->next;
+		}
+		current = current->next;
+	}
+	return (1);
+}
+
+// this function
+// (1) checks for errors in argv,
+// (2) converts it into a stack of ints and
+// (3) checks for duplicated ints.
+// (4) returns stack_a or NULL.
 t_stack_node    *process_argv(int argc, char **argv)
 {
     char            **split_argv;
@@ -142,5 +134,7 @@ t_stack_node    *process_argv(int argc, char **argv)
 	}
     if (argc == 2)
 		free_array(split_argv, len);
-    return (stack_a);
+	if (!check_for_duplicates(stack_a))
+		error_exit(stack_a);
+	return (stack_a);
 }

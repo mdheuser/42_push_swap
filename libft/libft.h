@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:02:06 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/08/11 22:25:48 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/10/03 11:16:59 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,18 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <stdarg.h> // for va_start, va_arg, va_copy, va_end
 
+// for get_next_line:
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
+# ifndef MAX_FD
+#  define MAX_FD 10240
+# endif
+
+// Libft
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -69,5 +80,18 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+// ft_printf
+int		ft_printf(const char *format, ...);
+int		print_char(char c);
+int		print_str(char *s);
+int		print_address(unsigned long int ptr);
+int		print_num(int number);
+int		print_unsigned(unsigned int n);
+int		print_hex(unsigned long int n, char specifier);
+
+// get_next_line and its bonus
+char	*get_next_line(int fd);
+char	*get_next_line_bonus(int fd); // maybe unnecessary??
 
 #endif

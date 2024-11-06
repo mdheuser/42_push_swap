@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   print_address.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 14:47:53 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/10/03 11:18:42 by mdahlstr         ###   ########.fr       */
+/*   Created: 2024/06/04 11:48:50 by mdahlstr          #+#    #+#             */
+/*   Updated: 2024/08/28 16:15:10 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+int	print_address(unsigned long int ptr)
 {
-	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
-		return (1);
+	int	count;
+
+	count = 0;
+	if (!ptr)
+	{
+		count = write(1, "0x0", 3);
+		return (count);
+	}
 	else
-		return (0);
+	{
+		count += write(1, "0x", 2);
+		if (count == -1)
+			return (-1);
+		count += print_hex(ptr, 'x');
+		if (count == -1)
+			return (-1);
+		return (count);
+	}
+	return (count);
 }
