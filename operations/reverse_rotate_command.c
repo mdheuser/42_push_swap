@@ -6,11 +6,11 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 20:34:53 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/04 19:00:20 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:17:08 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../include/push_swap.h"
 
 static void    reverse_rotate(t_stack_node **stack)
 {

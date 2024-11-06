@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:39:57 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 15:31:52 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:17:37 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // Example 3 03 should return error.
 //
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 static int	parse_array(char **split_argv, int size)
 {

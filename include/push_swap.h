@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:21:47 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 16:51:03 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:16:05 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 /////////////////////////////////////////////////////////////////////////////////////
-# define DEBUG_MODE 1
+# define DEBUG_MODE 0
 
 # if DEBUG_MODE
 #  define DEBUG_PRINT(fmt, args...) fprintf(stderr, fmt "\n", ## args)
@@ -23,7 +23,7 @@
 # endif
 /////////////////////////////////////////////////////////////////////////////////////
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <unistd.h> // read(), write()
 # include <stdlib.h> // malloc(), free(), exit()
 # include <limits.h> // ????????????                                                 ?

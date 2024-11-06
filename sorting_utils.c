@@ -6,11 +6,11 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:30:30 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 16:35:54 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:17:48 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 t_stack_node    *find_min(t_stack_node *stack)
 {

@@ -6,11 +6,11 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 22:06:41 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 16:04:28 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:17:27 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 //Find `a` node's target in stack `b`
 // The target has to be the closest smaller number/value in b

@@ -6,11 +6,11 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:12:23 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/05 15:10:03 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:17:42 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 void	free_stack(t_stack_node **stack)
 {
@@ -27,11 +27,12 @@ void	free_stack(t_stack_node **stack)
 	}
 }
 
+// fd 2 is stderr
 void    error_exit(t_stack_node *stack_a)
 {
 	if (stack_a)
 		free_stack(&stack_a);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 

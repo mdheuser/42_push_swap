@@ -6,11 +6,11 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:06:19 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/05 15:18:45 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:17:30 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 //This function converts the strings in argv into  integers.
 // AND checks for duplicates

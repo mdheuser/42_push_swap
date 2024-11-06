@@ -6,11 +6,11 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:59:10 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 16:55:53 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:17:45 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 void    sort_five(t_stack_node **stack_a, t_stack_node **stack_b)
 {
@@ -86,7 +86,7 @@ void    sort_stack_a(t_stack_node *stack_a, t_stack_node *stack_b)
 	DEBUG_PRINT("\nstack_len: %d", stack_len);
 	if (stack_len == 2)
 	{
-		DEBUG_PRINT("\nSorted stack o 2: \n");
+		DEBUG_PRINT("\nSorted stack of 2: \n");
 		swap_a(&stack_a);
 		#if DEBUG_MODE
 		printList(stack_a);

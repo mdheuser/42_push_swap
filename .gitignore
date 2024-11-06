@@ -2,3 +2,4 @@ checker
 a.out
 .vscode/
 *.o
+push_swap_tester

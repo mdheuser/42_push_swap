@@ -13,7 +13,7 @@
 // TO DO LIST
 // Handle error in which 03 and 3 should be detected as duplicates.
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 int main(int argc, char **argv)
 {
