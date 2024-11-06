@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:39:57 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 17:17:37 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 20:26:13 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	parse_array(char **split_argv, int size)
 			else if ((split_argv[i][j] == '-' || split_argv[i][j] == '+')
 			&& (split_argv[i][j + 1] == '\0'))
 			{
-				printf("- or + in the wrong position\n");
+				DEBUG_PRINT("- or + in the wrong position\n");
 				return (0);
 			}
 			j++;
@@ -52,20 +52,20 @@ static int	parse_array(char **split_argv, int size)
 	return (1);
 }
 
-static void free_array(char **split_argv, int len)
+void free_array(char **split_argv, int len)
 {
-    int i;
+	int i;
 
-    if (split_argv == NULL)
-        return ; // Check if the array is NULL
-    // Free each inner array (row) using a while loop
-    i = 0;
-    while (i < len) {
-        free(split_argv[i]); // Free the current row
-        i++; // Increment the index
-    }
-    // Free the outer array
-    free(split_argv);
+	if (split_argv == NULL)
+		return ; // Check if the array is NULL
+	// Free each inner array (row) using a while loop
+	i = 0;
+	while (i < len) {
+		free(split_argv[i]); // Free the current row
+		i++; // Increment the index
+	}
+	// Free the outer array
+	free(split_argv);
 }
 
 static int	check_for_duplicates(t_stack_node *stack_a)
@@ -98,41 +98,24 @@ static int	check_for_duplicates(t_stack_node *stack_a)
 // (4) returns stack_a or NULL.
 t_stack_node    *process_argv(int argc, char **argv)
 {
-    char            **split_argv;
-    int             len;
-    t_stack_node    *stack_a;
+	char            **split_argv;
+	int             len;
+	t_stack_node    *stack_a;
 	
-    if (argc == 1)
-		return (NULL);
+	stack_a = NULL;
 	if (argc == 2)
-	{	
-		DEBUG_PRINT("argc == 2: %s\n\n", argv[1]);
 		split_argv = ft_split(argv[1], ' ');
-	}
 	else
 		split_argv = argv + 1;
 	len = 0;
 	while (split_argv[len] != NULL)
 		len++;
-	if (parse_array(split_argv, len) == 0)
-	{
-		DEBUG_PRINT("Parsing error");
-		//error_message();
-		if (argc == 2)
-			free_array(split_argv, len);
-		return (NULL);
-	}
-	DEBUG_PRINT("\nnumber counter: %d\n\n", len); ////////////////////////////////////// REMOVE
+	if (!parse_array(split_argv, len))
+		error_exit_array(argc, split_argv, len);
 	stack_a = create_int_list(split_argv, len);
-    if (stack_a == NULL)
-	{
-		//error_message();
-		DEBUG_PRINT("stack_a is NULL\n"); /////////////////////////////////// REMOVE
-		if (argc == 2)
-			free_array(split_argv, len);
-		return (NULL);
-	}
-    if (argc == 2)
+	if (stack_a == NULL)
+		error_exit_array(argc, split_argv, len);
+	if (argc == 2)
 		free_array(split_argv, len);
 	if (!check_for_duplicates(stack_a))
 		error_exit(stack_a);

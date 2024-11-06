@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:12:23 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 17:17:42 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 20:32:01 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,20 @@ void	free_stack(t_stack_node **stack)
 }
 
 // fd 2 is stderr
-void    error_exit(t_stack_node *stack_a)
+void	error_exit(t_stack_node *stack_a)
 {
 	if (stack_a)
 		free_stack(&stack_a);
 	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	exit(1);
+}
+
+void	error_exit_array(int argc, char **split_array, int len)
+{
+	if (argc == 2)
+		free_array(split_array, len);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 int find_stack_len(t_stack_node *stack)
@@ -57,12 +65,12 @@ int check_if_sorted(t_stack_node *stack)
 	{
 		if(stack->value > stack->next->value)
 		{
-			DEBUG_PRINT("\nThe list is NOT sorted\n");
+			//DEBUG_PRINT("\nThe list is NOT sorted\n");
 			return(0);
 		}
 		stack = stack->next;
 	}
-	DEBUG_PRINT("\nThe list is already in the right order\n");
+	//DEBUG_PRINT("\nThe list is already in the right order\n");
 	return (1);
 }
 

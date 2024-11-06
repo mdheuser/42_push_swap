@@ -6,45 +6,67 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:59:10 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 17:17:45 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/06 21:31:25 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
+// MAYBE CREATE A FUNCTION THAT MOVES MIN TO TOP.
+/*
+void	move_min_to_top(t_stack_node **stack_a)
+{
+    t_stack_node *min;  // Find the minimum node
+	
+	min = find_min(*stack_a);  // Find the minimum node
+    current_index(*stack_a);  // Update indices if needed
+    // Loop until `min` is at the top of stack_a
+    while (*stack_a != min)
+    {
+        if (min->above_median)
+            rotate_a(stack_a);  // Rotate towards the top if `min` is closer to the bottom
+        else
+            reverse_rotate_a(stack_a);  // Reverse rotate if `min` is closer to the top
+    }
+}
+*/
+
 void    sort_five(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	t_stack_node	*min;
-	t_stack_node	*current;
 
 	min = find_min(*stack_a);
+	current_index(*stack_a);
+	// move_min_to_top()
 	while (*stack_a != min)
 	{
 		if (min->above_median)
 			rotate_a(stack_a);
 		else
 			reverse_rotate_a(stack_a);
-		current = current->next;
-	}	
+		if (check_if_sorted(*stack_a))
+			return ;
+	}
 	push_b(stack_b, stack_a);
+	current_index(*stack_a);
 	sort_four(stack_a, stack_b);
 	push_a(stack_a, stack_b);
 }
 
-
 void    sort_four(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	t_stack_node	*min;
-	t_stack_node	*current;
-
+	//move min to top()
 	min = find_min(*stack_a);
+	current_index(*stack_a);
 	while (*stack_a != min)
 	{
 		if (min->above_median)
 			rotate_a(stack_a);
 		else
 			reverse_rotate_a(stack_a);
-		current = current->next;
+		if (check_if_sorted(*stack_a))
+			return ;
 	}	
 	push_b(stack_b, stack_a);
 	sort_three(stack_a);
@@ -117,5 +139,5 @@ void    sort_stack_a(t_stack_node *stack_a, t_stack_node *stack_b)
   		#endif
 	}
 	else if (stack_len > 5)
-		sorting_algorithm(&stack_a, &stack_b);
+		big_sort(&stack_a, &stack_b);
 }
