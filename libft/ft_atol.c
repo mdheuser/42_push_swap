@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:38:06 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/09/30 14:35:49 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:28:06 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,16 @@ static int	ft_isspace(int c)
 		|| (c == '\n') || (c == '\v') || (c == '\f'));
 }
 
+static long	handle_overflow(int sign)
+{
+	if (sign == 1)
+		return (LONG_MAX);
+	return (LONG_MIN);
+}
+
 long	ft_atol(const char *str)
 {
 	long		num;
-	long		buffer;
 	int			sign;
 
 	num = 0;
@@ -34,14 +40,11 @@ long	ft_atol(const char *str)
 			sign = -1;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9' && *str)
+	while (*str >= '0' && *str <= '9')
 	{
-		buffer = num;
+		if (num > (LONG_MAX - (*str - '0')) / 10)
+			return (handle_overflow(sign));
 		num = num * 10 + (*str - '0');
-		if (num / 10 != buffer && sign == -1)
-			return (0);
-		else if (num / 10 != buffer && sign == 1)
-			return (-1);
 		str++;
 	}
 	return (num * sign);

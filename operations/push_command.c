@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 22:13:16 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 17:17:03 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/07 12:55:10 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void    push(t_stack_node **dest, t_stack_node **src)
         node_to_move->next->prev = node_to_move;
         *dest = node_to_move;
     }
-    
 }
 
 // Pushes from stack b to stack a.

@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:12:23 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 20:32:01 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/07 12:29:15 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@ void	free_stack(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
 
-	if (!stack)
+	if (!stack || !*stack)
 		return ;
 	while(*stack)
 	{
 		tmp = (*stack)->next;
-		(*stack)->value = 0;
 		free(*stack);
 		*stack = tmp;
 	}

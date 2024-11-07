@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:21:47 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/06 21:21:11 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:37:02 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 /////////////////////////////////////////////////////////////////////////////////////
-# define DEBUG_MODE 1
+# define DEBUG_MODE 0
 
 # if DEBUG_MODE
 #  define DEBUG_PRINT(fmt, args...) fprintf(stderr, fmt "\n", ## args)
@@ -52,6 +52,7 @@ static inline void printList(t_stack_node *head)
 	t_stack_node *tmp;
 	
 	tmp = head;
+	printf("\n");
 	while (tmp != NULL)
 	{
 		printf("%d", tmp->value);
@@ -59,9 +60,12 @@ static inline void printList(t_stack_node *head)
 			printf(" ");
 		tmp = tmp->next;
 	}
-	printf("\n\n");
+	printf("\n");
 }
 # endif
+
+///TEMPORARY ////////////////////////////////////////////////////////////////////////
+void bubble_sort_push_swap(t_stack_node **stack_a, t_stack_node **stack_b);
 
 
 // Key functions
@@ -72,7 +76,7 @@ void    		big_sort(t_stack_node **stack_a, t_stack_node **stack_b);
 void			sort_three(t_stack_node **stack_a);
 void    		sort_five(t_stack_node **stack_a, t_stack_node **stack_b);
 void    		sort_four(t_stack_node **stack_a, t_stack_node **stack_b);
-void			move_min_to_top(t_stack_node **stack_a);
+bool			move_min_to_top(t_stack_node **stack_a);
 
 
 void			error_exit(t_stack_node *stack_a);
