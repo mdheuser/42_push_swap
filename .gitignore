@@ -1,9 +1,0 @@
-checker
-a.out
-.vscode/
-*.o
-push_swap_tester/
-Push-Swap-Tester-master/
-checker_linux
-push_swap_test_linux.sh
-*.txt
