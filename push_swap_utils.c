@@ -6,78 +6,46 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:12:23 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/07 12:29:15 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/14 20:34:25 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-void	free_stack(t_stack_node **stack)
+int	find_stack_len(t_stack_node *stack)
 {
 	t_stack_node	*tmp;
+	int				stack_len;
 
-	if (!stack || !*stack)
-		return ;
-	while(*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-}
-
-// fd 2 is stderr
-void	error_exit(t_stack_node *stack_a)
-{
-	if (stack_a)
-		free_stack(&stack_a);
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	error_exit_array(int argc, char **split_array, int len)
-{
-	if (argc == 2)
-		free_array(split_array, len);
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-int find_stack_len(t_stack_node *stack)
-{
-	t_stack_node    *tmp;
-	int             stack_len;
-	
 	stack_len = 0;
 	tmp = stack;
 	while (tmp)
 	{
 		stack_len++;
-		tmp = tmp->next; 
+		tmp = tmp->next;
 	}
 	return (stack_len);
 }
 
-int check_if_sorted(t_stack_node *stack)
+int	check_if_sorted(t_stack_node *stack)
 {
-	while(stack && stack->next)
+	t_stack_node	*current;
+
+	current = stack;
+	while (current && current->next)
 	{
-		if(stack->value > stack->next->value)
-		{
-			//DEBUG_PRINT("\nThe list is NOT sorted\n");
-			return(0);
-		}
-		stack = stack->next;
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
 	}
-	//DEBUG_PRINT("\nThe list is already in the right order\n");
 	return (1);
 }
 
-t_stack_node    *find_last_node(t_stack_node *stack)
+t_stack_node	*find_last_node(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);
-	while(stack->next)
+	while (stack->next)
 	{
 		stack = stack->next;
 	}
