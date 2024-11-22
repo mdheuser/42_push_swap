@@ -6,7 +6,7 @@
 /*   By: mdahlstr <mdahlstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:06:19 by mdahlstr          #+#    #+#             */
-/*   Updated: 2024/11/07 17:54:07 by mdahlstr         ###   ########.fr       */
+/*   Updated: 2024/11/21 20:28:33 by mdahlstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static t_stack_node	*create_node(long value)
 	if (!new_node)
 		return (NULL);
 	new_node->value = value;
+	new_node->cheapest = false;
+	new_node->above_median = false;
 	new_node->next = NULL;
 	return (new_node);
 }
@@ -64,11 +66,11 @@ t_stack_node	*create_int_list(char **split_argv, int len)
 	while (++i < len)
 	{
 		if (!is_valid_number(split_argv[i]))
-			return (NULL);
+			error_exit_all(&split_argv, &head);
 		n = ft_atol(split_argv[i]);
 		new_node = create_node(n);
 		if (!new_node)
-			return (NULL);
+			error_exit_stack(&head);
 		if (!head)
 			head = new_node;
 		else
